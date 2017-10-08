@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { Storage } from '@ionic/storage';
 import { Platform } from "ionic-angular";
 
@@ -9,27 +8,54 @@ export class AjustesService{
     mostrar_tutorial: true
   }
 
-  constructor(private platform: Platform) {
+  constructor(private platform: Platform,
+                private storage: Storage) {
     console.log('Hello AjustesProvider Provider');
   }
 
   cargar_storage(){
-    if (this.platform.is("cordova")){
+    let promesa = new Promise( ( resolve, reject )=> {
 
-    }else{
-      if (localStorage.getItem ("ajustes")){
+      if ( this.platform.is("cordova")  ){
+        console.log ("Inicializando storage");
 
-        this.ajustes = JSON.parse (localStorage.getItem("ajustes"));
+          this.storage.ready()
+              .then(()=>{
+
+                console.log("storage listo")
+
+                  this.storage.get("ajustes")
+                    .then( ajustes=>{
+                        this.ajustes= ajustes;
+                        resolve();
+
+            });
+
+        })
+
+
+      }else{//computadora
+        if (localStorage.getItem ("ajustes") ){
+             this.ajustes = JSON.parse (localStorage.getItem("ajustes"));
+        }
+        resolve();
       }
 
-    }
-    
+    });
+    return promesa;
+
+
 
   }
 
   guardar_storage(){
 
     if (this.platform.is("cordova")){
+      this.storage.ready()
+            .then (()=>{
+
+              this.storage.set("ajustes", this.ajustes);
+            })
 
     }else{
       localStorage.setItem ("ajustes", JSON.stringify(this.ajustes) );
