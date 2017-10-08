@@ -26,7 +26,13 @@ export class AjustesService{
 
                   this.storage.get("ajustes")
                     .then( ajustes=>{
-                        this.ajustes= ajustes;
+
+                          if (ajustes ){
+                              this.ajustes= ajustes;
+
+                          }
+
+                        
                         resolve();
 
             });
