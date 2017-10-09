@@ -1,25 +1,21 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TelemetriaPage, ElectrodosPage, VariablesPage, EstadosPage } from "../index.paginas";
 
-/**
- * Generated class for the TabsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-tabs',
   templateUrl: 'tabs.html',
 })
 export class TabsPage {
+  tab1:any;
+  tab2:any;
+  tab3:any;
+  tab4:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor() {
+this.tab1 = TelemetriaPage;
+this.tab2 = ElectrodosPage;
+this.tab3 = VariablesPage;
+this.tab4 = EstadosPage;
+
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsPage');
-  }
-
 }
