@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
 
-import { HomePage } from "../home/home";
+//import {TabsPage } from "../home/home";
+import { TabsPage } from "../tabs/tabs";
 import { AjustesService } from "../../providers/ajustes/ajustes";
 
 @IonicPage()
@@ -37,7 +38,7 @@ saltar_tutorial(){
   this._ajustes.ajustes.mostrar_tutorial = false;
   this._ajustes.guardar_storage ();
 
-this.navCtrl.setRoot (HomePage);
+  this.navCtrl.setRoot (TabsPage);
 
 }
 
