@@ -48,7 +48,7 @@ import { AjustesService } from '../providers/ajustes/ajustes';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AjustesService
+   AjustesService
   ]
 })
 export class AppModule {}
