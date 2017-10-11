@@ -14,8 +14,8 @@ export class TabsPage {
   constructor() {
 this.tab1 = TelemetriaPage;
 this.tab2 = ElectrodosPage;
-this.tab3 = EstadosPage;
-this.tab4 = VariablesPage;
+this.tab3 = VariablesPage;
+this.tab4 = EstadosPage;
 
   }
 }

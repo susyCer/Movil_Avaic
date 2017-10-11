@@ -11,7 +11,7 @@ import { AjustesService } from "../providers/ajustes/ajustes";
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any;
+  rootPage:"any";
   //rootPage:"IntroduccionPage"
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
                 private _ajustes:AjustesService
@@ -22,9 +22,9 @@ export class MyApp {
             .then( ()=>{
 
           if ( this._ajustes.ajustes.mostrar_tutorial){
-                this.rootPage = "IntroduccionPage";
+            this.rootPage = "IntroduccionPage";
         }else{
-                this.rootPage = TabsPage;
+            this.rootPage = TabsPage;
         }
         // Okay, so the platform is ready and our plugins are available.
         // Here you can do any higher level native things you might need.
