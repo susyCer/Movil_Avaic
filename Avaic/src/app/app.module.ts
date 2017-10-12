@@ -4,6 +4,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+
+//import { BluetoothPage} from "../pages/bluetooth";
+
 
 import {  TelemetriaPage,
           ElectrodosPage,
@@ -29,6 +33,7 @@ import { AjustesService } from '../providers/ajustes/ajustes';
     VariablesPage,
     EstadosPage,
     TabsPage
+
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ import { AjustesService } from '../providers/ajustes/ajustes';
     TabsPage
   ],
   providers: [
+    BluetoothSerial,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
